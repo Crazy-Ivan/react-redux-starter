@@ -1,0 +1,10 @@
+{
+  "name": "hmr",
+  "version": "0.0.1",
+  "main": "hmr.js",
+  "private": true,
+  "plugin": {
+    "provides": [],
+    "consumes": ["webServer", "logger"]
+  }
+}
