@@ -1,7 +1,7 @@
 import pkg from './../package.json';
 import _debug from 'debug';
 
-const debug = _debug('app:webpack:vendor');
+const debug = _debug('app:build:vendor');
 
 const vendor = [
     'history',

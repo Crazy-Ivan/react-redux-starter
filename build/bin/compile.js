@@ -5,7 +5,7 @@ import appConfig from '../../appConfig.js';
 import webpackConfig from '../webpack.config';
 import config from '../build.config';
 
-const debug = _debug('app:bin:compile');
+const debug = _debug('app:build:bin:compile');
 const statsFormat = {
   chunks: false,
   chunkModules: false,

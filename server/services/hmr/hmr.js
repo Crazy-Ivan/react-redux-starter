@@ -7,13 +7,13 @@ const { publicPath } = webpackConfig.output;
 
 export default function(options, imports, register) {
 
-    const logger = imports.logger;
+    const log = imports.logger.getOwn('HMR');
     const webserver = imports.webServer;
     const compiler = webpack(webpackConfig);
 
-    logger.info("include webpack-web-middleware");
+    log("include webpack-web-middleware");
     webserver.use(webpackDevMiddleware(compiler, { noInfo: true,publicPath: publicPath, stats: { colors: true } }));
 
-    logger.info("include  wabpack-hot-middleware");
-    webserver.use(webpackHotMiddleware(compiler, { log: logger.info }));
+    log("include  wabpack-hot-middleware");
+    webserver.use(webpackHotMiddleware(compiler, { log: log }));
 };

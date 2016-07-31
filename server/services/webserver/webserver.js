@@ -3,9 +3,8 @@ import http from 'http';
 import morgan from 'morgan';
 import appConfig from '../../../appConfig.js';
 
-
 export default function(options, imports, register) {
-    const logger = imports.logger;
+    const log = imports.logger.getOwn('webserver');
     const webServer = express();
     const httpServer = http.createServer(webServer);
 
@@ -13,12 +12,12 @@ export default function(options, imports, register) {
     webServer.use(express.static(appConfig.structure.dist));
 
     httpServer.listen(options.port, () => {
-        logger.info(`web server listening on ${options.port}`);
+      log(`web server listening on ${options.port}`);
     });
 
     register(null, {
         webServer: webServer,
-        httpServer:  httpServer
+        httpServer: httpServer
     });
 }
 

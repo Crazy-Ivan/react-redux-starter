@@ -7,7 +7,7 @@ import appConfig from './../appConfig.js';
 import vendor from './webpack.vendor.js';
 
 const { __DEV__, __PROD__ } = appConfig.env;
-const debug = _debug('app:webpack:config');
+const debug = _debug('app:build:config');
 
 debug('Create webpack configuration');
 
