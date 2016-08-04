@@ -3,7 +3,6 @@ import _debug from 'debug';
 import webpack from 'webpack';
 import appConfig from '../../appConfig.js';
 import webpackConfig from '../webpack.config';
-import config from '../build.config';
 
 const debug = _debug('app:build:bin:compile');
 const statsFormat = {
