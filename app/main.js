@@ -1,7 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import createStore from './boot/createStore';
+import renderApplication from './boot/renderApplication';
 
-const MOUNT_NODE = document.getElementById('root');
+const initialState = window.__INITIAL_STATE__;
+const mountNode = document.getElementById('root');
+const store = createStore(initialState);
+
+renderApplication(mountNode, store);
 
 if(__DEV__) {
   if(module.hot) {

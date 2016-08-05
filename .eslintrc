@@ -17,9 +17,11 @@
       "__TEST__": false
     },
     "rules": {
-        "indent": ["error", 2],
-        "linebreak-style": ["error", "unix"],
-        "quotes": ["error", "single"],
-        "semi": ["error", "always"]
+      "indent": ["error", 2],
+      "linebreak-style": ["error", "unix"],
+      "quotes": ["error", "single"],
+      "semi": ["error", "always"],
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error"
     }
 }
