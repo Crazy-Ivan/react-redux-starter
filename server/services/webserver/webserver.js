@@ -4,21 +4,21 @@ import morgan from 'morgan';
 import appConfig from '../../../appConfig.js';
 
 export default function(options, imports, register) {
-    const log = imports.logger.getOwn('webserver');
-    const webServer = express();
-    const httpServer = http.createServer(webServer);
+  const log = imports.logger.getOwn('webserver');
+  const webServer = express();
+  const httpServer = http.createServer(webServer);
 
-    webServer.use(morgan('dev'));
-    webServer.use(express.static(appConfig.structure.dist));
+  webServer.use(morgan('dev'));
+  webServer.use(express.static(appConfig.structure.dist));
 
-    httpServer.listen(options.port, () => {
-      log(`web server listening on ${options.port}`);
-    });
+  httpServer.listen(options.port, () => {
+    log(`web server listening on ${options.port}`);
+  });
 
-    register(null, {
-        webServer: webServer,
-        httpServer: httpServer
-    });
+  register(null, {
+    webServer: webServer,
+    httpServer: httpServer
+  });
 }
 
 //var express = require('express'),

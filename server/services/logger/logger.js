@@ -10,10 +10,10 @@ export default function(options, imports, register) {
   }
 
   register(null, {
-        logger: {
-            info: info,
-            error: error,
-            getOwn: getOwn
-        }
-    })
-};
+    logger: {
+      info: info,
+      error: error,
+      getOwn: getOwn
+    }
+  });
+}

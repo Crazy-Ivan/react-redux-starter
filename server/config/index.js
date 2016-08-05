@@ -7,26 +7,26 @@ import testConfig from './env/test.js';
 const {__DEV__, __PROD__, __TEST__} = appConfig.env;
 
 function mergeConfigCollections(firstCollection, secondCollection) {
-    let updatedItemsCollection = firstCollection.map(firstItem => {
-        let secondItem = secondCollection.find((secondItem) => firstItem.packagePath == secondItem.packagePath);
-        return Object.assign(firstItem, secondItem);
-    });
+  let updatedItemsCollection = firstCollection.map(firstItem => {
+    let secondItem = secondCollection.find((secondItem) => firstItem.packagePath == secondItem.packagePath);
+    return Object.assign(firstItem, secondItem);
+  });
 
-    let newItemsCollection = secondCollection.filter((secondItem) => {
-            return !firstCollection.some(firstItem => secondItem.packagePath == firstItem.packagePath);
-    });
+  let newItemsCollection = secondCollection.filter((secondItem) => {
+    return !firstCollection.some(firstItem => secondItem.packagePath == firstItem.packagePath);
+  });
 
-    return updatedItemsCollection.concat(newItemsCollection);
+  return updatedItemsCollection.concat(newItemsCollection);
 }
 
 let serverConfig;
 
 if (__DEV__) {
-    serverConfig = mergeConfigCollections(commonConfig, developmentConfig);
+  serverConfig = mergeConfigCollections(commonConfig, developmentConfig);
 } else if (__PROD__) {
-    serverConfig = mergeConfigCollections(commonConfig, productionConfig);
+  serverConfig = mergeConfigCollections(commonConfig, productionConfig);
 } else if (__TEST__) {
-    serverConfig = mergeConfigCollections(commonConfig, testConfig);
+  serverConfig = mergeConfigCollections(commonConfig, testConfig);
 }
 
 export default serverConfig;

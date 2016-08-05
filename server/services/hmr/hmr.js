@@ -5,15 +5,15 @@ import webpackConfig from '../../../build/webpack.config.js';
 
 const { publicPath } = webpackConfig.output;
 
-export default function(options, imports, register) {
+export default function(options, imports) {
 
-    const log = imports.logger.getOwn('HMR');
-    const webserver = imports.webServer;
-    const compiler = webpack(webpackConfig);
+  const log = imports.logger.getOwn('HMR');
+  const webserver = imports.webServer;
+  const compiler = webpack(webpackConfig);
 
-    log("include webpack-web-middleware");
-    webserver.use(webpackDevMiddleware(compiler, { noInfo: true,publicPath: publicPath, stats: { colors: true } }));
+  log('include webpack-web-middleware');
+  webserver.use(webpackDevMiddleware(compiler, { noInfo: true,publicPath: publicPath, stats: { colors: true } }));
 
-    log("include  wabpack-hot-middleware");
-    webserver.use(webpackHotMiddleware(compiler, { log: log }));
-};
+  log('include  wabpack-hot-middleware');
+  webserver.use(webpackHotMiddleware(compiler, { log: log }));
+}
