@@ -80,6 +80,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.5.2",
     "react-router-redux": "^4.0.5",
+    "redbox-react": "^1.2.10",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0"
   }

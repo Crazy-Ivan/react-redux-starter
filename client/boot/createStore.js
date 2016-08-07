@@ -1,5 +1,5 @@
 import { compose, applyMiddleware, createStore } from 'redux';
-import { makeRootReducer } from '../services/reducers';
+import { makeRootReducer } from 'services/reducer';
 import thunkMiddleware from 'redux-thunk';
 
 export default (initialState = {}) => {
@@ -22,6 +22,11 @@ export default (initialState = {}) => {
       ...enhancers
     ));
 
-  store.asyncReducers = {};
+  if(module.hot) {
+    module.hot.accept('services/reducer', () => {
+      store.replaceReducer(makeRootReducer());
+    });
+  }
+
   return store;
 };
