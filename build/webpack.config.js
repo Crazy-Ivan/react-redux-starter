@@ -47,6 +47,9 @@ const webpackConfig = {
     }, {
       test: /\.json$/,
       loader: 'json'
+    }, {
+      test: /\.css$/,
+      loader: ['style', 'css?modules&localIdentName=[name]__[local]__[hash:base64:5]']
     }]
   }
 
