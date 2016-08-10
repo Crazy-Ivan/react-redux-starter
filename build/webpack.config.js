@@ -48,11 +48,13 @@ const webpackConfig = {
       test: /\.json$/,
       loader: 'json'
     }, {
+      test: /\.scss$/,
+      loaders: ['style', 'css?modules&localIdentName=[name]__[local]__[hash:base64:5]', 'sass']
+    }, {
       test: /\.css$/,
-      loader: ['style', 'css?modules&localIdentName=[name]__[local]__[hash:base64:5]']
+      loaders: ['style', 'css?modules&localIdentName=[name]__[local]__[hash:base64:5]']
     }]
   }
-
 };
 
 if(__DEV__) {

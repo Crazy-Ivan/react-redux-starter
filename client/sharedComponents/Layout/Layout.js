@@ -1,4 +1,5 @@
 import React from 'react';
+import 'styles/mainStyle.scss';
 
 const Layout = ({ children }) => (
   <div>
